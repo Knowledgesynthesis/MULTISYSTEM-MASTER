@@ -1,0 +1,106 @@
+import { Disease } from '@/types'
+
+export const sepsisData: Disease = {
+  id: 'sepsis_core',
+  name: 'Sepsis',
+  category: 'sepsis',
+  pathophysiology:
+    'Sepsis is a dysregulated host response to infection leading to life-threatening organ dysfunction. It results from complex interactions between pathogen-associated molecular patterns (PAMPs) and host inflammatory mediators, causing endothelial dysfunction, coagulopathy, and impaired tissue perfusion.',
+  diagnosticFeatures: [
+    'Hypotension (SBP <90 mmHg or MAP <65 mmHg)',
+    'Lactate elevation (>2 mmol/L)',
+    'Fever (>38.3°C) or hypothermia (<36°C)',
+    'Tachycardia (HR >90 bpm)',
+    'Tachypnea (RR >20) or PaCO2 <32 mmHg',
+    'Altered mental status',
+    'Hyperglycemia (>140 mg/dL) in non-diabetics',
+  ],
+  systemicManifestations: [
+    'Cardiovascular: Hypotension, tachycardia, warm or cool extremities',
+    'Respiratory: Tachypnea, hypoxemia, ARDS',
+    'Renal: Oliguria, elevated creatinine, AKI',
+    'Hematologic: Thrombocytopenia, coagulopathy, DIC',
+    'Hepatic: Hyperbilirubinemia, elevated transaminases',
+    'CNS: Altered mental status, delirium',
+  ],
+  initialManagement: [
+    'Immediate fluid resuscitation (30 mL/kg crystalloid within 3 hours)',
+    'Obtain blood cultures BEFORE antibiotics',
+    'Broad-spectrum antibiotics within 1 hour',
+    'Measure lactate and remeasure if elevated',
+    'Source control (drain abscess, remove infected devices)',
+  ],
+  labs: [
+    'CBC with differential (WBC >12,000 or <4,000)',
+    'BMP (evaluate renal function, glucose)',
+    'Lactate (marker of tissue hypoperfusion)',
+    'Blood cultures (2 sets from different sites)',
+    'ABG/VBG (evaluate acid-base status)',
+    'Procalcitonin (elevated in bacterial infection)',
+    'Coagulation panel (PT/PTT, fibrinogen)',
+  ],
+  redFlags: [
+    'Persistent hypotension despite fluids (septic shock)',
+    'Lactate >4 mmol/L',
+    'Altered mental status',
+    'Acute respiratory failure requiring mechanical ventilation',
+    'Acute kidney injury with oliguria',
+    'Thrombocytopenia or coagulopathy',
+  ],
+  complications: [
+    'Septic shock (hypotension requiring vasopressors)',
+    'ARDS (Acute Respiratory Distress Syndrome)',
+    'Acute kidney injury',
+    'DIC (Disseminated Intravascular Coagulation)',
+    'Multi-organ dysfunction syndrome (MODS)',
+    'Adrenal insufficiency',
+  ],
+  treatmentSequence: [
+    {
+      order: 1,
+      action: 'Recognize sepsis - use qSOFA or SIRS criteria as screening',
+      rationale:
+        'Early recognition improves outcomes; qSOFA (≥2: altered mentation, SBP ≤100, RR ≥22) predicts poor outcomes',
+      monitoring: ['Vital signs', 'Mental status'],
+      pitfalls: ['Waiting for confirmatory labs delays treatment'],
+    },
+    {
+      order: 2,
+      action: 'Obtain blood cultures and other relevant cultures',
+      rationale: 'Identify pathogen and guide antibiotic therapy',
+      monitoring: ['Culture results in 24-48 hours'],
+      pitfalls: [
+        'Starting antibiotics before cultures',
+        'Inadequate sample collection',
+      ],
+    },
+    {
+      order: 3,
+      action: 'Administer broad-spectrum antibiotics within 1 hour',
+      rationale: 'Each hour delay increases mortality by 7.6%',
+      monitoring: ['Clinical response', 'Culture sensitivities'],
+      pitfalls: ['Inadequate coverage', 'Antibiotic allergies not checked'],
+    },
+    {
+      order: 4,
+      action: 'Fluid resuscitation: 30 mL/kg crystalloid bolus',
+      rationale: 'Restore tissue perfusion and improve organ function',
+      monitoring: ['MAP', 'Urine output', 'Lactate clearance'],
+      pitfalls: ['Fluid overload in heart failure', 'Using colloids initially'],
+    },
+    {
+      order: 5,
+      action: 'Vasopressors if hypotension persists (target MAP ≥65 mmHg)',
+      rationale: 'Norepinephrine is first-line to maintain organ perfusion',
+      monitoring: ['MAP', 'Lactate', 'Urine output', 'End-organ function'],
+      pitfalls: ['Starting vasopressors before adequate fluids'],
+    },
+    {
+      order: 6,
+      action: 'Source control within 12 hours if feasible',
+      rationale: 'Remove infected focus to allow recovery',
+      monitoring: ['Clinical improvement', 'Vital signs'],
+      pitfalls: ['Delaying necessary surgical intervention'],
+    },
+  ],
+}
